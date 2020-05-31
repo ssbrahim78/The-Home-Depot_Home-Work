@@ -11,9 +11,10 @@ public class HomePage {
 
 
     // Chrome Browser
-    public static WebDriver driver = new ChromeDriver();
+
     public static String chromeDriver = "webdriver.chrome.driver";
     public static String chromeDriverPath = "BrowserDriver\\windows\\chromedriver.exe";
+    public static WebDriver driver;
     public static String url = "https://www.amazon.com/";
 
     // Variable for WebElements
@@ -79,6 +80,7 @@ public class HomePage {
 
     public static void setUp(String browserDriver, String driverPath, String url) {
         System.setProperty(browserDriver, driverPath);
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         //driver.get(url);
@@ -90,7 +92,7 @@ public class HomePage {
     }
     public static void closeBrowser(){
         // close the running window only
-        //driver.close();
+       // driver.close();
         // quit all the open windows/ tabs
         driver.quit();
 

@@ -9,9 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 public class HomeDepot {
     // create driver object
-    public static WebDriver driver = new FirefoxDriver();
-    public static String firefoxDriver = "webdriver.gecko.driver";
-    public static String firefoxDriverPath = "BrowserDriver\\Windows\\firfoxedriver.exe";
+    public static WebDriver driver;
+    public static String firefoxDriver = "webdriver.chrome.driver";
+    public static String firefoxDriverPath = "BrowserDriver\\Windows\\chromedriver.exe";
 
     public static String url = "https://www.homedepot.com/";
 
@@ -248,7 +248,8 @@ public static void storeFinderUsingLocation() throws InterruptedException {
 
         //  connect and open browser
         System.setProperty(browserDriver, driverPath);
-        System.setProperty(browserDriver, driverPath);
+        driver=new ChromeDriver();
+       // System.setProperty(browserDriver, driverPath);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get(url);
